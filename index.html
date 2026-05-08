@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Resad Ismayilov Developer</title>
+    <meta
+      name="description"
+      content="Resad Ismayilov — Frontend Developer & Instructor. Responsive, modern and scalable web applications with React & Next.js."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#home" data-i18n="skip_link">Məzmunu keç</a>
+
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Əsas naviqasiya">
+        <div class="container nav__inner">
+          <a class="brand" href="#home" aria-label="Ana səhifə">
+            <span class="brand__mark">R.I</span>
+            <span class="brand__text">Resad Ismayilov</span>
+          </a>
+
+         
+
+          <button
+            class="nav__toggle"
+            type="button"
+            aria-label="Menyunu aç"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span class="nav__toggle-lines" aria-hidden="true"></span>
+          </button>
+
+          <div class="nav__menu" id="nav-menu">
+            <a class="nav__link is-active" href="#home" data-nav-link data-i18n="nav_home">Home</a>
+            <a class="nav__link" href="#about" data-nav-link data-i18n="nav_about">About</a>
+            <a class="nav__link" href="#skills" data-nav-link data-i18n="nav_skills">Skills</a>
+            <a class="nav__link" href="#experience" data-nav-link data-i18n="nav_experience">Experience</a>
+            <a class="nav__link" href="#projects" data-nav-link data-i18n="nav_projects">Projects</a>
+            <a class="nav__link" href="#contact" data-nav-link data-i18n="nav_contact">Contact</a>
+          </div>
+
+          <div class="lang-switcher" id="lang-switcher">
+            <button class="lang-switcher__trigger" id="lang-trigger" aria-label="Dil seçimi">
+              <i class="fa-solid fa-globe lang-switcher__icon"></i>
+              <span id="current-lang">AZ</span>
+              <i class="fa-solid fa-chevron-down lang-switcher__arrow"></i>
+            </button>
+            <ul class="lang-switcher__dropdown" id="lang-dropdown">
+              <li><button class="lang-option" data-lang="az">AZ</button></li>
+              <li><button class="lang-option" data-lang="en">EN</button></li>
+              <li><button class="lang-option" data-lang="ru">RU</button></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero__inner">
+          <div class="hero__content" data-aos="fade-up" data-aos-duration="900">
+            <p class="hero__eyebrow">
+              <span class="dot"></span>
+              <span data-i18n="hero_available">Available for freelance & full-time</span>
+            </p>
+            <h1 class="hero__title">
+              RESAD ISMAYILOV
+              <span class="hero__title-accent">.</span>
+            </h1>
+            <p class="hero__subtitle">
+              <span class="muted" data-i18n="hero_im">I am</span>
+              <span class="typing" aria-label="Peşə başlığı">
+                <span id="typing-text"></span><span class="typing__caret" aria-hidden="true"></span>
+              </span>
+            </p>
+            <p class="hero__desc" data-i18n="hero_desc">
+              As a modern, performance-oriented Frontend Developer, I focus on building web applications that prioritize user experience, clean code, and scalability. With experience in the React ecosystem, UI/UX principles, and real-world projects, I deliver effective technological solutions to business challenges.
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#projects" data-i18n="btn_view_projects">View Projects</a>
+              <a class="btn btn--ghost" href="#contact" data-i18n="btn_contact_me">Contact Me</a>
+            </div>
+
+            <div class="hero__meta">
+              <a class="meta" href="mailto:reshad64@gmail.com">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>reshad64@gmail.com</span>
+              </a>
+              <a class="meta" href="tel:+994775570123">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <span>+994 77 557 01 23</span>
+              </a>
+              <span class="meta">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span data-i18n="location">Baku, Azerbaijan</span>
+              </span>
+            </div>
+
+            <div class="socials" aria-label="Sosial linklər">
+              <a
+                class="social"
+                href="https://wa.me/994775570123"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              </a>
+              <a
+                class="social"
+                href="mailto:reshad64@gmail.com"
+                aria-label="Gmail"
+              >
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              </a>
+              <a
+                class="social"
+                href="https://linkedin.com/in/reshad-ismayilov"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              </a>
+              <a
+                class="social"
+                href="https://github.com/Reshad-Ismayilov"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__card" data-aos="fade-left" data-aos-duration="900">
+            <div class="glass hero-card">
+              <div class="hero-card__top">
+                <div class="avatar" aria-hidden="true">
+                  <span class="avatar__ring"></span>
+                  <img src="sekil cv.jpeg" alt="Resad Ismayilov" class="avatar__img" />
+                </div>
+                <div class="hero-card__name">
+                  <div class="hero-card__title" data-i18n="card_role">Frontend Developer</div>
+                  <div class="hero-card__subtitle muted">React • Next.js • UI/UX</div>
+                </div>
+              </div>
+              <div class="hero-card__stats">
+                <div class="stat">
+                  <div class="stat__value">10+</div>
+                  <div class="stat__label muted">
+               
+                    <span data-i18n="stat_projects">Projects</span>
+                  </div>
+                  <div class="stat__desc muted" data-i18n="stat_projects_desc">Real-world Web Apps</div>
+                </div>
+                <div class="stat">
+                  <div class="stat__value">2</div>
+                  <div class="stat__label muted">
+                  
+                    <span data-i18n="stat_teaching">Teaching roles</span>
+                  </div>
+                  <div class="stat__desc muted" data-i18n="stat_teaching_desc">Instructor / Mentor Roles</div>
+                </div>
+                <div class="stat">
+                  <div class="stat__value" data-i18n="stat_availability_val">Remote • Freelance • On-site</div>
+                  <div class="stat__label muted">
+            
+                    <span data-i18n="stat_availability">Work mode</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-card__tags" aria-label="Texnologiyalar">
+                <span class="tag">React</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">SCSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__bg" aria-hidden="true"></div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section__head" data-aos="fade-up">
+            <h2 class="section__title" data-i18n="about_title">About Me</h2>
+            <p class="section__desc" data-i18n="about_head_desc">
+              Focused on building clean, responsive and high-performance interfaces with a modern, minimal
+              and professional UI.
+            </p>
+          </div>
+
+          <div class="about">
+            <div class="glass about__card" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="card__title" data-i18n="about_summary_title">Professional Summary</h3>
+              <p class="card__text" data-i18n="about_summary_text">
+                I focus on building modern, minimal, and performance-oriented user interfaces, creating high-quality and user-centered web experiences. In Frontend development, I apply the React ecosystem, component-based architecture, and UI/UX principles to develop scalable and optimized solutions. My experience with real-world projects allows me to create products that are well-balanced from both a technical and design perspective.
+              </p>
+              <div class="about__highlights">
+                <div class="pill">
+                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                  <span data-i18n="highlight_ui">Component-driven UI</span>
+                </div>
+                <div class="pill">
+                  <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                  <span data-i18n="highlight_ux">Modern UX patterns</span>
+                </div>
+                <div class="pill">
+                  <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+                  <span data-i18n="highlight_perf">Performance-first</span>
+                </div>
+                <div class="pill">
+                  <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                  <span data-i18n="highlight_mentoring">Mentoring & teaching</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass about__card" data-aos="fade-up" data-aos-delay="150">
+              <h3 class="card__title" data-i18n="about_info_title">Quick Info</h3>
+              <div class="kv">
+                <div class="kv__row">
+                  <span class="kv__key muted" data-i18n="info_title_key">Title</span>
+                  <span class="kv__val" data-i18n="info_title_val">Frontend Developer | Instructor</span>
+                </div>
+                <div class="kv__row">
+                  <span class="kv__key muted" data-i18n="info_location_key">Location</span>
+                  <span class="kv__val" data-i18n="location">Baku, Azerbaijan</span>
+                </div>
+                <div class="kv__row">
+                  <span class="kv__key muted" data-i18n="info_email_key">Email</span>
+                  <a class="kv__val link" href="mailto:reshad64@gmail.com">reshad64@gmail.com</a>
+                </div>
+                <div class="kv__row">
+                  <span class="kv__key muted" data-i18n="info_phone_key">Phone</span>
+                  <a class="kv__val link" href="tel:+994775570123">+994 77 557 01 23</a>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <h4 class="card__subtitle" data-i18n="about_langs_title">Languages</h4>
+              <div class="badges" aria-label="Dillər">
+                <span class="badge" data-i18n="lang_en">English (B1)</span>
+                <span class="badge" data-i18n="lang_ru">Russian (A2)</span>
+                <span class="badge" data-i18n="lang_tr">Turkish (C1)</span>
+              </div>
+
+              <div class="divider"></div>
+
+              <h4 class="card__subtitle" data-i18n="about_links_title">Links</h4>
+              <div class="links">
+                <a class="link-row" href="https://linkedin.com/in/reshad-ismayilov" target="_blank" rel="noreferrer">
+                  <span class="link-row__left">
+                    <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                    <span>LinkedIn</span>
+                  </span>
+                  <span class="muted" data-i18n="link_open">Open</span>
+                </a>
+                <a class="link-row" href="https://github.com/Reshad-ismayilov" target="_blank" rel="noreferrer">
+                  <span class="link-row__left">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    <span>GitHub</span>
+                  </span>
+                  <span class="muted" data-i18n="link_open">Open</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section__head" data-aos="fade-up">
+            <h2 class="section__title" data-i18n="skills_title">Skills</h2>
+            <p class="section__desc" data-i18n="skills_head_desc">Full skill set across frontend, UI/UX, backend basics, tooling and deployment.</p>
+          </div>
+
+          <div class="skill-groups" data-aos="fade-up" data-aos-delay="100">
+            <article class="skill-group glass">
+              <div class="skill-group__head">
+                <span class="skill-group__icon" aria-hidden="true"><i class="fa-solid fa-code"></i></span>
+                <div class="skill-group__text">
+                  <div class="skill-group__top">
+                    <h3 class="skill-group__title" data-i18n="skill_group_fe">Frontend Development</h3>
+                    <span class="skill-group__count"><span data-i18n="skill_count_12">12</span> <span data-i18n="skills_word">Skills</span></span>
+                  </div>
+                  <p class="skill-group__desc muted" data-i18n="skill_group_fe_desc">Core frontend stack and application architecture.</p>
+                </div>
+              </div>
+              <div class="skill-list" aria-label="Frontend Development skills">
+                <span class="skill-chip">HTML5</span>
+                <span class="skill-chip">CSS3</span>
+                <span class="skill-chip">JavaScript (ES6+)</span>
+                <span class="skill-chip">TypeScript</span>
+                <span class="skill-chip">React.js</span>
+                <span class="skill-chip">Next.js</span>
+                <span class="skill-chip">React Router</span>
+                <span class="skill-chip">Redux / Redux Toolkit</span>
+                <span class="skill-chip">Context API</span>
+                <span class="skill-chip">REST API Integration</span>
+                <span class="skill-chip">Responsive Web Design</span>
+                <span class="skill-chip">Mobile-first Development</span>
+              </div>
+            </article>
+
+            <article class="skill-group glass">
+              <div class="skill-group__head">
+                <span class="skill-group__icon" aria-hidden="true"><i class="fa-solid fa-pen-nib"></i></span>
+                <div class="skill-group__text">
+                  <div class="skill-group__top">
+                    <h3 class="skill-group__title" data-i18n="skill_group_ui">UI / UX & Styling</h3>
+                    <span class="skill-group__count"><span data-i18n="skill_count_9">9</span> <span data-i18n="skills_word">Skills</span></span>
+                  </div>
+                  <p class="skill-group__desc muted" data-i18n="skill_group_ui_desc">Modern styling workflows and UI engineering.</p>
+                </div>
+              </div>
+              <div class="skill-list" aria-label="UI/UX & Styling skills">
+                <span class="skill-chip">Tailwind CSS</span>
+                <span class="skill-chip">Bootstrap</span>
+                <span class="skill-chip">SASS (SCSS)</span>
+                <span class="skill-chip">Figma (UI to Code)</span>
+                <span class="skill-chip">Framer Motion</span>
+                <span class="skill-chip">CSS Animations</span>
+                <span class="skill-chip">Glassmorphism Design</span>
+                <span class="skill-chip">UI/UX Principles</span>
+                <span class="skill-chip">Design Systems</span>
+              </div>
+            </article>
+
+
+            <article class="skill-group glass">
+              <div class="skill-group__head">
+                <span class="skill-group__icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>
+                <div class="skill-group__text">
+                  <div class="skill-group__top">
+                    <h3 class="skill-group__title" data-i18n="skill_group_db">Database</h3>
+                    <span class="skill-group__count"><span data-i18n="skill_count_4">4</span> <span data-i18n="skills_word">Skills</span></span>
+                  </div>
+                  <p class="skill-group__desc muted" data-i18n="skill_group_db_desc">Data basics for real-world CRUD applications.</p>
+                </div>
+              </div>
+              <div class="skill-list" aria-label="Database skills">
+                <span class="skill-chip">MySQL</span>
+                <span class="skill-chip">SQL (SELECT, INSERT, UPDATE, DELETE, JOIN)</span>
+                <span class="skill-chip">Database Design Basics</span>
+                <span class="skill-chip">JDBC</span>
+              </div>
+            </article>
+
+            <article class="skill-group glass">
+              <div class="skill-group__head">
+                <span class="skill-group__icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                <div class="skill-group__text">
+                  <div class="skill-group__top">
+                    <h3 class="skill-group__title" data-i18n="skill_group_tools">Tools & Workflow</h3>
+                    <span class="skill-group__count"><span data-i18n="skill_count_8">8</span> <span data-i18n="skills_word">Skills</span></span>
+                  </div>
+                  <p class="skill-group__desc muted" data-i18n="skill_group_tools_desc">Daily tooling, debugging and quality practices.</p>
+                </div>
+              </div>
+              <div class="skill-list" aria-label="Tools & Workflow skills">
+                <span class="skill-chip">Git</span>
+                <span class="skill-chip">GitHub</span>
+                <span class="skill-chip">VS Code</span>
+                <span class="skill-chip">Vite</span>
+                <span class="skill-chip">npm / yarn</span>
+                <span class="skill-chip">Chrome DevTools</span>
+                <span class="skill-chip">Postman</span>
+                <span class="skill-chip">ESLint / Prettier</span>
+              </div>
+            </article>
+
+            <article class="skill-group glass">
+              <div class="skill-group__head">
+                <span class="skill-group__icon" aria-hidden="true"><i class="fa-solid fa-rocket"></i></span>
+                <div class="skill-group__text">
+                  <div class="skill-group__top">
+                    <h3 class="skill-group__title" data-i18n="skill_group_deploy">Deployment & Hosting</h3>
+                    <span class="skill-group__count"><span data-i18n="skill_count_3">3</span> <span data-i18n="skills_word">Skills</span></span>
+                  </div>
+                  <p class="skill-group__desc muted" data-i18n="skill_group_deploy_desc">Shipping and maintaining production-ready sites.</p>
+                </div>
+              </div>
+              <div class="skill-list" aria-label="Deployment & Hosting skills">
+                <span class="skill-chip">Vercel</span>
+                <span class="skill-chip">Netlify</span>
+                <span class="skill-chip">GitHub Pages</span>
+              </div>
+            </article>
+
+            <article class="skill-group glass">
+              <div class="skill-group__head">
+                <span class="skill-group__icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+                <div class="skill-group__text">
+                  <div class="skill-group__top">
+                    <h3 class="skill-group__title" data-i18n="skill_group_extra">Extra Professional Skills</h3>
+                    <span class="skill-group__count"><span data-i18n="skill_count_6">6</span> <span data-i18n="skills_word">Skills</span></span>
+                  </div>
+                  <p class="skill-group__desc muted" data-i18n="skill_group_extra_desc">Engineering practices that improve quality and impact.</p>
+                </div>
+              </div>
+              <div class="skill-list" aria-label="Extra Professional Skills">
+                <span class="skill-chip" data-i18n="skill_perf_opt">Performance Optimization</span>
+                <span class="skill-chip" data-i18n="skill_a11y">Web Accessibility (a11y)</span>
+                <span class="skill-chip" data-i18n="skill_seo">SEO Basics</span>
+                <span class="skill-chip" data-i18n="skill_clean_code">Clean Code Principles</span>
+                <span class="skill-chip" data-i18n="skill_reusability">Component Reusability</span>
+                <span class="skill-chip" data-i18n="skill_problem_solving">Problem Solving</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="section__head" data-aos="fade-up">
+            <h2 class="section__title" data-i18n="exp_title">Experience</h2>
+            <p class="section__desc" data-i18n="exp_head_desc">Professional roles focused on frontend development, mentoring and instruction.</p>
+          </div>
+
+          <div class="experience-grid">
+            <article class="exp-card glass" data-aos="fade-up" data-aos-delay="60">
+              <header class="exp-card__head">
+                <div>
+                  <h3 class="exp-card__role" data-i18n="role_instructor">Frontend Instructor</h3>
+                  <p class="exp-card__company">
+                    <span class="muted" data-i18n="company_label">Company:</span>
+                    <span class="exp-company">KiberKod Academy</span>
+                  </p>
+                </div>
+                <div class="exp-card__date muted" data-i18n="exp_date_1">Oct 2025 - Present (8 months)</div>
+              </header>
+              <div class="exp-meta" aria-label="Experience meta">
+                <span class="exp-pill"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <span data-i18n="job_type_ft">Full-time</span></span>
+                <span class="exp-pill"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="job_loc_az">Azerbaijan (On-site)</span></span>
+              </div>
+              <p class="exp-card__desc" data-i18n="exp_desc_1">
+                Working as a Front-End Instructor, guiding students in HTML, CSS, JavaScript and React.
+                Supporting them with practical projects and helping them gain real-world web development skills.
+              </p>
+            </article>
+
+            <article class="exp-card glass" data-aos="fade-up" data-aos-delay="90">
+              <header class="exp-card__head">
+                <div>
+                  <h3 class="exp-card__role" data-i18n="role_instructor">Frontend Instructor</h3>
+                  <p class="exp-card__company">
+                    <span class="muted" data-i18n="company_label">Company:</span>
+                    <span class="exp-company">RisePath Academy</span>
+                  </p>
+                </div>
+                <div class="exp-card__date muted" data-i18n="exp_date_2">Sep 2025 - Present (9 months)</div>
+              </header>
+              <div class="exp-meta" aria-label="Experience meta">
+                <span class="exp-pill"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <span data-i18n="job_type_ft">Full-time</span></span>
+                <span class="exp-pill"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="job_loc_az">Azerbaijan (On-site)</span></span>
+              </div>
+              <p class="exp-card__desc" data-i18n="exp_desc_2">
+                Delivering structured frontend training programs, mentoring students in modern web technologies and
+                helping them build portfolio-level projects. Focused on improving both theoretical knowledge and practical skills.
+              </p>
+            </article>
+
+            <article class="exp-card glass" data-aos="fade-up" data-aos-delay="120">
+              <header class="exp-card__head">
+                <div>
+                  <h3 class="exp-card__role" data-i18n="role_dev">Frontend Developer</h3>
+                  <p class="exp-card__company">
+                    <span class="muted" data-i18n="company_label">Company:</span>
+                    <span class="exp-company">ITB Techno</span>
+                  </p>
+                </div>
+                <div class="exp-card__date muted" data-i18n="exp_date_3">Jun 2025 - May 2026 (1 year)</div>
+              </header>
+              <div class="exp-meta" aria-label="Experience meta">
+                <span class="exp-pill"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <span data-i18n="job_type_ft">Full-time</span></span>
+                <span class="exp-pill"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="job_loc_baku">Baku, Azerbaijan (On-site)</span></span>
+              </div>
+              <p class="exp-card__desc" data-i18n="exp_desc_3">
+                Developing responsive and high-performance web applications using React.js and Next.js.
+                Working with REST APIs, Redux state management, and improving UI/UX performance with modern frontend practices.
+              </p>
+            </article>
+
+            <article class="exp-card glass" data-aos="fade-up" data-aos-delay="150">
+              <header class="exp-card__head">
+                <div>
+                  <h3 class="exp-card__role" data-i18n="role_mentor">Frontend Mentor</h3>
+                  <p class="exp-card__company">
+                    <span class="muted" data-i18n="company_label">Company:</span>
+                    <span class="exp-company">IT Brains Academy</span>
+                  </p>
+                </div>
+                <div class="exp-card__date muted" data-i18n="exp_date_4">May 2025 - Sep 2025 (5 months)</div>
+              </header>
+              <div class="exp-meta" aria-label="Experience meta">
+                <span class="exp-pill"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <span data-i18n="job_type_ft">Full-time</span></span>
+                <span class="exp-pill"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span data-i18n="job_loc_baku">Baku, Azerbaijan (On-site)</span></span>
+              </div>
+              <p class="exp-card__desc" data-i18n="exp_desc_4">
+                Mentored students in Front-End Development including HTML, CSS, JavaScript and React.
+                Helped students complete real projects and improve problem-solving skills.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section__head" data-aos="fade-up">
+            <h2 class="section__title" data-i18n="projects_title">Projects</h2>
+            <p class="section__desc" data-i18n="projects_head_desc">
+              Placeholder structure ready for your real projects. Replace images and links anytime.
+            </p>
+          </div>
+
+          <div class="projects">
+            <article class="project glass" data-aos="fade-up" data-aos-delay="60">
+              <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" aria-label="SmartRent GitHub">
+                <img
+                  src="smartrent.png"
+                  alt="SmartRent screenshot"
+                  loading="lazy"
+                />
+              </a>
+              <div class="project__body">
+                <h3 class="project__title" data-i18n="proj_1_title">SmartRent</h3>
+                <p class="project__desc" data-i18n="proj_1_desc">Müasir avtomobil icarəsi platforması. Rahat bron etmə və idarəetmə sistemi.</p>
+                <div class="chips" aria-label="Tech stack">
+                  <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Tailwind</span>
+                </div>
+                <div class="project__actions">
+                  <a class="btn btn--sm btn--primary btn--full" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" data-i18n="btn_github">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project glass" data-aos="fade-up" data-aos-delay="90">
+              <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" aria-label="Onlaynders.az GitHub">
+                <img
+                  src="onlaynders.png"
+                  alt="Onlaynders.az screenshot"
+                  loading="lazy"
+                />
+              </a>
+              <div class="project__body">
+                <h3 class="project__title" data-i18n="proj_2_title">Onlaynders.az</h3>
+                <p class="project__desc" data-i18n="proj_2_desc">Sertifikat zəmanətli interaktiv kompüter dərsləri platforması.</p>
+                <div class="chips" aria-label="Tech stack">
+                  <span class="chip">React</span><span class="chip">Redux</span><span class="chip">SCSS</span>
+                </div>
+                <div class="project__actions">
+                  <a class="btn btn--sm btn--primary btn--full" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" data-i18n="btn_github">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project glass" data-aos="fade-up" data-aos-delay="120">
+              <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" aria-label="Medicare GitHub">
+                <img
+                  src="medicare.png"
+                  alt="Medicare screenshot"
+                  loading="lazy"
+                />
+              </a>
+              <div class="project__body">
+                <h3 class="project__title" data-i18n="proj_3_title">Medicare</h3>
+                <p class="project__desc" data-i18n="proj_3_desc">Tibb mərkəzləri üçün xəstə və həkim qəbulu idarəetmə sistemi.</p>
+                <div class="chips" aria-label="Tech stack">
+                  <span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">ApexCharts</span>
+                </div>
+                <div class="project__actions">
+                  <a class="btn btn--sm btn--primary btn--full" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" data-i18n="btn_github">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project glass" data-aos="fade-up" data-aos-delay="150">
+              <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" aria-label="BMPay GitHub">
+                <img
+                  src="bmpay.png"
+                  alt="BMPay screenshot"
+                  loading="lazy"
+                />
+              </a>
+              <div class="project__body">
+                <h3 class="project__title" data-i18n="proj_4_title">BMPay</h3>
+                <p class="project__desc" data-i18n="proj_4_desc">Vergi hesablama və ödəniş idarəetmə paneli.</p>
+                <div class="chips" aria-label="Tech stack">
+                  <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+                </div>
+                <div class="project__actions">
+                  <a class="btn btn--sm btn--primary btn--full" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" data-i18n="btn_github">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project glass" data-aos="fade-up" data-aos-delay="180">
+              <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" aria-label="CVBrain GitHub">
+                <img
+                  src="cvbrain.png"
+                  alt="CVBrain screenshot"
+                  loading="lazy"
+                />
+              </a>
+              <div class="project__body">
+                <h3 class="project__title" data-i18n="proj_5_title">CVBrain</h3>
+                <p class="project__desc" data-i18n="proj_5_desc">Peşəkar CV-lərin yaradılması və idarə edilməsi üçün platforma.</p>
+                <div class="chips" aria-label="Tech stack">
+                  <span class="chip">HTML</span><span class="chip">SCSS</span><span class="chip">GSAP</span>
+                </div>
+                <div class="project__actions">
+                  <a class="btn btn--sm btn--primary btn--full" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" data-i18n="btn_github">GitHub</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project glass" data-aos="fade-up" data-aos-delay="210">
+              <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" aria-label="Aetc Academy GitHub">
+                <img
+                  src="aetcacademy.png"
+                  alt="Aetc Academy screenshot"
+                  loading="lazy"
+                />
+              </a>
+              <div class="project__body">
+                <h3 class="project__title" data-i18n="proj_6_title">Aetc Academy</h3>
+                <p class="project__desc" data-i18n="proj_6_desc">Mühəndislik biliklərini real sənaye təcrübəsi ilə yeni səviyyəyə yüksəldən təlim platforması.</p>
+                <div class="chips" aria-label="Tech stack">
+                  <span class="chip">React</span><span class="chip">API</span><span class="chip">CSS</span>
+                </div>
+                <div class="project__actions">
+                  <a class="btn btn--sm btn--primary btn--full" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank" rel="noreferrer" data-i18n="btn_github">GitHub</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section__head" data-aos="fade-up">
+            <h2 class="section__title" data-i18n="contact_title">Contact</h2>
+            <p class="section__desc" data-i18n="contact_head_desc">Let’s build something clean, fast and professional.</p>
+          </div>
+
+          <div class="contact">
+            <div class="glass contact__card" data-aos="fade-up" data-aos-delay="90">
+              <h3 class="card__title" data-i18n="contact_form_title">Send a message</h3>
+              <form class="form" id="contact-form" action="https://formspree.io/reshad64@gmail.com" method="POST">
+                <div class="form__row">
+                  <label class="label" for="name" data-i18n="label_name">Name</label>
+                  <input class="input" id="name" name="name" type="text" autocomplete="name" required />
+                </div>
+                <div class="form__row">
+                  <label class="label" for="email" data-i18n="label_email">Email</label>
+                  <input class="input" id="email" name="_replyto" type="email" autocomplete="email" required />
+                </div>
+                <div class="form__row">
+                  <label class="label" for="message" data-i18n="label_message">Message</label>
+                  <textarea class="textarea" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form__actions">
+                  <button class="btn btn--primary btn--full" type="submit" data-i18n="btn_send">Send</button>
+                </div>
+                <p class="form__hint muted" id="form-hint" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="glass contact__card" data-aos="fade-up" data-aos-delay="120">
+              <h3 class="card__title" data-i18n="contact_info_title">Contact info</h3>
+              <div class="contact__rows">
+                <a class="contact-row" href="tel:+994775570123">
+                  <span class="contact-row__icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                  <span>
+                    <span class="muted" data-i18n="info_phone_key">Phone</span>
+                    <span class="contact-row__val">+994 77 557 01 23</span>
+                  </span>
+                </a>
+                <a class="contact-row" href="mailto:reshad64@gmail.com">
+                  <span class="contact-row__icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                  <span>
+                    <span class="muted" data-i18n="info_email_key">Email</span>
+                    <span class="contact-row__val">reshad64@gmail.com</span>
+                  </span>
+                </a>
+                <a class="contact-row" href="https://linkedin.com/in/reshad-ismayilov" target="_blank" rel="noreferrer">
+                  <span class="contact-row__icon" aria-hidden="true"><i class="fa-brands fa-linkedin-in"></i></span>
+                  <span>
+                    <span class="muted">LinkedIn</span>
+                    <span class="contact-row__val">linkedin.com/in/reshad-ismayilov</span>
+                  </span>
+                </a>
+                <a class="contact-row" href="https://github.com/Reshad-ismayilov" target="_blank" rel="noreferrer">
+                  <span class="contact-row__icon" aria-hidden="true"><i class="fa-brands fa-github"></i></span>
+                  <span>
+                    <span class="muted">GitHub</span>
+                    <span class="contact-row__val">github.com/Reshad-ismayilov</span>
+                  </span>
+                </a>
+                <div class="contact-row" role="group" aria-label="Location">
+                  <span class="contact-row__icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+                  <span>
+                    <span class="muted" data-i18n="info_location_key">Location</span>
+                    <span class="contact-row__val" data-i18n="location">Baku, Azerbaijan</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <a
+                class="btn btn--primary btn--full"
+                href="https://wa.me/994775570123?text=Hello%20Resad,%20I%20want%20to%20contact%20you"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span data-i18n="btn_whatsapp">WhatsApp ilə yaz</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__left">
+          <div class="footer__brand">
+            <span class="brand__mark">R.I</span>
+            <span class="brand__text">Resad Ismayilov</span>
+          </div>
+          <p class="muted"><span data-i18n="footer_subtitle">Frontend Developer | Instructor</span> • <span data-i18n="location">Baku, Azerbaijan</span></p>
+          <div class="footer__socials">
+            <a href="https://wa.me/994775570123" target="_blank" rel="noreferrer" class="footer__social-btn" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="mailto:reshad64@gmail.com" class="footer__social-btn" aria-label="Gmail">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://linkedin.com/in/reshad-ismayilov" target="_blank" rel="noreferrer" class="footer__social-btn" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/Reshad-ismayilov" target="_blank" rel="noreferrer" class="footer__social-btn" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer__right">
+          <a class="footer__link" href="#home" data-i18n="footer_top">Back to top</a>
+        </div>
+      </div>
+      <div class="footer__bottom muted">© <span id="year"></span> Resad Ismayilov. <span data-i18n="footer_rights">All rights reserved.</span></div>
+    </footer>
+
+    <a
+      class="cv-float"
+      href="./Reshad Ismayilov Cv.pdf"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="CV-ni yüklə"
+    >
+      <i class="fa-solid fa-address-card" aria-hidden="true"></i>
+    </a>
+
+    <a
+      class="wa-float"
+      href="https://wa.me/994775570123?text=Hello%20Resad,%20I%20want%20to%20contact%20you"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="WhatsApp ilə əlaqə"
+    >
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <button class="to-top" type="button" id="to-top" aria-label="Yuxarı qalx">
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
