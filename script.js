@@ -593,15 +593,19 @@ function initLang() {
 function initContactForm() {
   const form = $("#contact-form");
   const hint = $("#form-hint");
-  if (!form) return;
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  
+  if (!form || !submitBtn) return;
 
-  const setHint = (text) => {
+  const setHint = (text, type = 'info') => {
     if (!hint) return;
     hint.textContent = text;
+    hint.className = `form__hint ${type}`;
   };
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    
     const name = $("#name")?.value?.trim() || "";
     const email = $("#email")?.value?.trim() || "";
     const message = $("#message")?.value?.trim() || "";
@@ -610,19 +614,30 @@ function initContactForm() {
       const errorMsg = currentLang === "az" ? "Zəhmət olmasa bütün xanaları doldurun." : 
                       currentLang === "ru" ? "Пожалуйста, заполните все поля." : 
                       "Please fill in all fields.";
-      setHint(errorMsg);
+      setHint(errorMsg, 'error');
       return;
     }
 
-    setHint(currentLang === "az" ? "Göndərilir..." : currentLang === "ru" ? "Отправка..." : "Sending...");
+    // Loading state
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = currentLang === "az" ? "Göndərilir..." : 
+                           currentLang === "ru" ? "Отправка..." : 
+                           "Sending...";
+    setHint("");
 
-    const formData = new FormData(form);
+    const data = {
+      name: name,
+      email: email,
+      message: message
+    };
 
     try {
       const response = await fetch(form.action, {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json'
         }
       });
@@ -630,15 +645,25 @@ function initContactForm() {
       if (response.ok) {
         setHint(currentLang === "az" ? "Mesajınız uğurla göndərildi!" : 
                 currentLang === "ru" ? "Ваше сообщение успешно отправлено!" : 
-                "Your message has been sent successfully!");
+                "Your message has been sent successfully!", 'success');
         form.reset();
       } else {
-        throw new Error();
+        const result = await response.json();
+        if (result.errors) {
+          throw new Error(result.errors.map(error => error.message).join(", "));
+        } else {
+          throw new Error("Failed to send");
+        }
       }
     } catch (error) {
-      setHint(currentLang === "az" ? "Xəta baş verdi. Yenidən cəhd edin." : 
-              currentLang === "ru" ? "Произошла ошибка. Попробуйте еще раз." : 
-              "An error occurred. Please try again.");
+      console.error("Submission Error:", error);
+      let finalError = error.message === "Failed to fetch" 
+        ? (currentLang === "az" ? "Şəbəkə xətası. Yenidən cəhd edin." : "Network error. Please try again.")
+        : error.message;
+      setHint(finalError, 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
     }
   });
 }
