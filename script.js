@@ -32,7 +32,7 @@ const translations = {
     highlight_ui: "Komponent əsaslı UI",
     highlight_ux: "Müasir UX nümunələri",
     highlight_perf: "Öncəlik performans",
-    highlight_mentoring: "Mentorluq və tədris",
+    highlight_mentoring: "Tədris və təlimçi",
     about_info_title: "Qısa Məlumat",
     info_title_key: "Vəzifə",
     info_title_val: "Frontend Developer | Təlimçi",
