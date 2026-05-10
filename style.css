@@ -9,6 +9,11 @@ html {
   scroll-padding-top: 88px;
 }
 
+.hero-domain{
+  font-size:14px;
+  opacity:.7;
+  margin-top:10px;
+}
 :root {
   --bg: #070a15;
   --panel: rgba(255, 255, 255, 0.06);
