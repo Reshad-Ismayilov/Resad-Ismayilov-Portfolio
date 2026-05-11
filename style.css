@@ -1442,14 +1442,15 @@ button {
 
 .order-new__grid {
   display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
-  gap: 0;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 30px;
   align-items: center;
 }
 
 .order-new__image {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 450px;
   background: transparent;
   display: flex;
   align-items: center;
@@ -1457,13 +1458,15 @@ button {
 }
 
 .order-new__image img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 110%;
+  width: 110%;
+  height: auto;
   object-fit: contain;
   object-position: center;
   border-radius: var(--r);
   transition: transform 0.5s ease;
   padding: 0;
+  transform: scale(1.1);
 }
 
 .order-new:hover .order-new__image img {
