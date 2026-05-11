@@ -1514,16 +1514,18 @@ button {
     min-height: auto;
     margin-top: 10px;
     padding: 0;
+    overflow: visible;
   }
 
   .order-new__grid {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
   
   .order-new__content {
-    padding: 20px 15px;
+    padding: 20px 15px 10px 15px;
     text-align: center;
     width: 100%;
     order: 1;
@@ -1533,10 +1535,10 @@ button {
     display: flex !important;
     order: 2;
     width: 100%;
-    min-height: auto;
     height: auto;
+    min-height: auto;
     padding: 0;
-    margin: 15px 0;
+    margin: 10px 0;
     justify-content: center;
     align-items: center;
     background: transparent;
@@ -1548,39 +1550,18 @@ button {
     max-width: 100%;
     display: block;
     margin: 0;
-    transform: none;
+    transform: none !important;
     object-fit: contain;
     border-radius: var(--r);
   }
 
-  .order-new__subtitle {
-    font-size: 20px;
-    margin-bottom: 15px;
-    padding: 0;
-    width: 100%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    display: block;
-    line-height: 1.4;
-  }
-
-  .order-new__text {
-    font-size: 15px;
-    gap: 12px;
-    padding: 0;
-    width: 100%;
-  }
-
-  .order-new__text p {
-    margin-bottom: 0;
-    width: 100%;
-  }
-
   .order-new__footer {
-    margin-top: 20px;
-    padding: 0 15px;
+    margin-top: 10px;
+    padding: 0 15px 30px 15px;
     width: 100%;
     order: 3;
+    position: relative;
+    z-index: 10;
   }
 
   .order-new__btn {
@@ -1590,6 +1571,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 }
 
