@@ -1510,18 +1510,50 @@ button {
 }
 
 @media (max-width: 991px) {
+  .order-new {
+    min-height: auto;
+    margin-top: 10px;
+  }
+
   .order-new__grid {
     grid-template-columns: 1fr;
     display: block;
   }
   
   .order-new__content {
-    padding: 30px 20px;
+    padding: 20px 10px;
     text-align: center;
+  }
+  
+  .order-new__subtitle {
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+
+  .order-new__text {
+    font-size: 15px;
+    gap: 15px;
+    padding: 0 5px;
+  }
+
+  .order-new__text p {
+    margin-bottom: 0;
   }
   
   .order-new__image {
     display: none;
+  }
+
+  .order-new__footer {
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .order-new__btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 20px;
   }
 }
 
@@ -1532,6 +1564,7 @@ button {
   
   .order-new__text {
     font-size: 14px;
+    line-height: 1.6;
   }
 }
 
