@@ -1535,19 +1535,22 @@ button {
     width: 100%;
     min-height: auto;
     height: auto;
-    padding: 10px 0 20px 0;
+    padding: 0;
+    margin: 15px 0;
     justify-content: center;
     align-items: center;
+    background: transparent;
   }
 
   .order-new__image img {
-    width: 85%;
-    max-width: 380px;
+    width: 100%;
     height: auto;
+    max-width: 100%;
     display: block;
-    margin: 0 auto;
-    transform: scale(1);
+    margin: 0;
+    transform: none;
     object-fit: contain;
+    border-radius: var(--r);
   }
 
   .order-new__subtitle {
