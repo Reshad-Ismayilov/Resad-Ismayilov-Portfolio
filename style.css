@@ -1302,6 +1302,67 @@ button {
   font-weight: 800;
 }
 
+/* Order Section */
+.order__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.order__card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.order__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.order__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.order__card:hover .order__image img {
+  transform: scale(1.05);
+}
+
+.order__body {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.order__features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.pill--sm {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.order__cta-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn--lg {
+  padding: 16px 40px;
+  font-size: 18px;
+  border-radius: 18px;
+}
+
 .footer {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(7, 10, 21, 0.55);
@@ -1591,6 +1652,10 @@ button {
     justify-content: center;
   }
 
+  .order__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .projects {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -1619,6 +1684,10 @@ button {
 
 @media (max-width: 768px) {
   .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .order__grid {
     grid-template-columns: 1fr;
   }
 
