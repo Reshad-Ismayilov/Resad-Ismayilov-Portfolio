@@ -85,12 +85,60 @@ button {
 }
 
 .glass {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.05));
-  border: 1px solid var(--border);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--r);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  color: #070a15;
+}
+
+.glass .muted,
+.glass .card__text,
+.glass .skill-group__desc,
+.glass .exp-card__desc,
+.glass .project__desc,
+.glass .stat__label,
+.glass .stat__desc,
+.glass .kv__key {
+  color: rgba(7, 10, 21, 0.7);
+}
+
+.glass .card__title,
+.glass .skill-group__title,
+.glass .exp-card__role,
+.glass .project__title,
+.glass .stat__value,
+.glass .kv__val,
+.glass .link-row__left span {
+  color: #070a15;
+}
+
+.glass .pill,
+.glass .tag,
+.glass .badge,
+.glass .skill-chip,
+.glass .chip,
+.glass .stat,
+.glass .link-row,
+.glass .contact-row,
+.glass .skill-group__icon,
+.glass .skill-group__count,
+.glass .exp-pill,
+.glass .edu__icon,
+.glass .contact-row__icon {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #070a15;
+}
+
+.glass .link,
+.glass .link-row__left i,
+.glass .skill-group__icon i,
+.glass .pill i,
+.glass .exp-pill i,
+.glass .edu__icon i,
+.glass .contact-row__icon i {
+  color: var(--accent-2);
 }
 
 .site-header {
@@ -1230,9 +1278,9 @@ button {
   width: 100%;
   padding: 12px 12px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.9);
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #070a15;
 }
 
 .textarea {
