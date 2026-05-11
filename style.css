@@ -1421,35 +1421,33 @@ button {
 
 /* Order New Section */
 .order-new {
-  padding: 30px;
+  padding: 0;
   margin-top: 20px;
-  max-width: 960px;
+  max-width: 1120px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .order-new__grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 30px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
 }
 
 .order-new__image {
   width: 100%;
-  border-radius: var(--r);
-  overflow: hidden;
-  background: transparent;
+  height: 100%;
+  background: var(--panel-2);
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .order-new__image img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: var(--r);
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
   transition: transform 0.5s ease;
 }
 
@@ -1457,9 +1455,16 @@ button {
   transform: scale(1.05);
 }
 
+.order-new__content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .order-new__subtitle {
-  font-size: 22px;
-  margin-bottom: 16px;
+  font-size: 24px;
+  margin-bottom: 20px;
   background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
@@ -1471,8 +1476,8 @@ button {
 .order-new__text {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  font-size: 15px;
+  gap: 15px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -1488,33 +1493,31 @@ button {
 }
 
 @media (max-width: 991px) {
-  .order-new {
-    padding: 24px;
-  }
-  
   .order-new__grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+  }
+  
+  .order-new__content {
+    padding: 30px;
     text-align: center;
   }
   
   .order-new__image {
-    max-width: 360px;
-    margin: 0 auto;
+    height: 300px;
   }
 }
 
 @media (max-width: 576px) {
-  .order-new {
-    padding: 18px;
+  .order-new__image {
+    height: 200px;
   }
   
   .order-new__subtitle {
-    font-size: 19px;
+    font-size: 20px;
   }
   
   .order-new__text {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
