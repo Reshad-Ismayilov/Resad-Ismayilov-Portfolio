@@ -4,6 +4,7 @@
   "description": "Reshad Ismayilov Portfolio Website",
   "main": "main.js",
   "scripts": {
+    "build": "echo 'No build step needed'",
     "start": "serve ."
   },
   "dependencies": {
