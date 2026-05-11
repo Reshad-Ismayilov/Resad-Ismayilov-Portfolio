@@ -1526,12 +1526,12 @@ button {
     padding: 20px 15px;
     text-align: center;
     width: 100%;
-    order: 2;
+    order: 1;
   }
   
   .order-new__image {
     display: flex !important;
-    order: 1;
+    order: 2;
     width: 100%;
     min-height: auto;
     height: auto;
