@@ -1518,9 +1518,7 @@ button {
   }
 
   .order-new__grid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
     width: 100%;
   }
   
@@ -1528,38 +1526,16 @@ button {
     padding: 20px 15px 10px 15px;
     text-align: center;
     width: 100%;
-    order: 1;
   }
   
   .order-new__image {
-    display: flex !important;
-    order: 2;
-    width: 100%;
-    height: auto;
-    min-height: auto;
-    padding: 0;
-    margin: 10px 0;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-  }
-
-  .order-new__image img {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    display: block;
-    margin: 0;
-    transform: none !important;
-    object-fit: contain;
-    border-radius: var(--r);
+    display: none !important;
   }
 
   .order-new__footer {
     margin-top: 10px;
     padding: 0 15px 30px 15px;
     width: 100%;
-    order: 3;
     position: relative;
     z-index: 10;
   }
