@@ -1436,7 +1436,7 @@ button {
   width: 100%;
   border-radius: var(--r);
   overflow: hidden;
-  background: var(--panel-2);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
