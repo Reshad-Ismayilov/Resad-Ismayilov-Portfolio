@@ -1513,6 +1513,7 @@ button {
   .order-new {
     min-height: auto;
     margin-top: 10px;
+    padding: 0;
   }
 
   .order-new__grid {
@@ -1521,24 +1522,31 @@ button {
   }
   
   .order-new__content {
-    padding: 20px 10px;
+    padding: 20px 15px;
     text-align: center;
   }
   
   .order-new__subtitle {
     font-size: 20px;
     margin-bottom: 15px;
-    padding: 0 10px;
+    padding: 0;
+    width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: block;
+    line-height: 1.4;
   }
 
   .order-new__text {
     font-size: 15px;
-    gap: 15px;
-    padding: 0 5px;
+    gap: 12px;
+    padding: 0;
+    width: 100%;
   }
 
   .order-new__text p {
     margin-bottom: 0;
+    width: 100%;
   }
   
   .order-new__image {
@@ -1547,24 +1555,37 @@ button {
 
   .order-new__footer {
     margin-top: 20px;
-    padding: 0 10px;
+    padding: 0 15px;
+    width: 100%;
   }
 
   .order-new__btn {
     width: 100%;
-    max-width: 320px;
-    padding: 14px 20px;
+    max-width: 100%;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 @media (max-width: 576px) {
+  .order-new__content {
+    padding: 15px 10px;
+  }
+
   .order-new__subtitle {
-    font-size: 19px;
+    font-size: 18px;
+    line-height: 1.3;
   }
   
   .order-new__text {
     font-size: 14px;
     line-height: 1.6;
+  }
+
+  .order-new__btn {
+    font-size: 16px;
   }
 }
 
