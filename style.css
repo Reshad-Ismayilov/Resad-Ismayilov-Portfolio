@@ -1319,16 +1319,18 @@ button {
 
 .order__image {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 240px;
   overflow: hidden;
-  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
 }
 
 .order__image img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 10px;
   transition: transform 0.3s ease;
 }
 
