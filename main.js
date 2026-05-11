@@ -675,3 +675,11 @@ initToTop();
 initYear();
 initLang();
 initContactForm();
+
+/**
+ * Vercel Analytics Initialization
+ * Bu hissə statistikaların Vercel tərəfindən izlənilməsini təmin edir.
+ * index.html-dəki script ilə birlikdə işləyir.
+ */
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+

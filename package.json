@@ -1,0 +1,14 @@
+{
+  "name": "resad-ismayilov-portfolio",
+  "version": "1.0.0",
+  "description": "Reshad Ismayilov Portfolio Website",
+  "main": "main.js",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.2.2"
+  },
+  "author": "Reshad Ismayilov",
+  "license": "ISC"
+}
