@@ -1645,32 +1645,6 @@ button {
   animation: waBounce 1.8s ease-in-out infinite;
 }
 
-.cv-float {
-  position: fixed;
-  right: 18px;
-  bottom: 86px;
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  z-index: 60;
-  background: var(--accent-2);
-  color: rgba(9, 12, 18, 0.9);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
-}
-
-.cv-float:hover {
-  transform: translateY(-5px);
-  background: var(--accent-3);
-}
-
-.cv-float i {
-  font-size: 22px;
-}
-
 .wa-float i {
   font-size: 22px;
 }
