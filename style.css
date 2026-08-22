@@ -1636,21 +1636,21 @@ button {
 .order-custom__form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 4px 0;
+  gap: 28px;
+  padding: 8px 0;
 }
 
 .order-custom__form .form__row {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 8px;
 }
 
 .order-custom__form .label {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.6px;
@@ -1705,6 +1705,7 @@ button {
   justify-content: center;
   gap: 12px;
   font-family: inherit;
+  max-width: 420px;
 }
 
 .order-custom__submit i {
@@ -1713,9 +1714,9 @@ button {
 
 .form__actions--center {
   display: flex;
-  justify-content: stretch;
+  justify-content: center;
   align-items: center;
-  margin-top: 4px;
+  margin-top: 0;
 }
 
 .order-custom__submit:hover:not(:disabled) {
@@ -2040,6 +2041,10 @@ button {
     padding: 16px;
   }
 
+  .order-custom__form {
+    gap: 22px;
+  }
+
   .price-range__current {
     font-size: 15px;
     padding: 5px 12px;
@@ -2055,6 +2060,12 @@ button {
 
   .contact-option__box {
     padding: 12px;
+  }
+
+  .order-custom__submit {
+    width: 100%;
+    max-width: none;
+    padding: 16px 20px;
   }
 
   .order-custom__main-subtitle {

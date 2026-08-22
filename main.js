@@ -798,7 +798,7 @@ function initOrderForm() {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const idea = $("#order-idea")?.value?.trim() || "";
@@ -840,36 +840,39 @@ function initOrderForm() {
     }
 
     setHint("");
-    const originalBtnText = submitBtnSpan.textContent;
     submitBtn.disabled = true;
-    submitBtnSpan.textContent = "WhatsApp-a yönləndirilir...";
-
-    // Build WhatsApp message with all order details
-    const contactTypeLabel = contactType === "phone" ? "📞 Mobil nömrə" : "📧 Gmail";
-    const whatsappMessage =
-      `🚀 *Yeni Layihə Sifarişi*\n\n` +
-      `📋 *Layihə İdeyası:*\n${idea}\n\n` +
-      `💰 *Büdcə:* ${Number(selectedPrice).toLocaleString("az-AZ")} AZN\n\n` +
-      `${contactTypeLabel}: ${contactValue}\n\n` +
-      `──────────────────\n` +
-      `reshad-ismayilov.site saytından göndərildi`;
-
-    const whatsappUrl = `https://wa.me/994775570123?text=${encodeURIComponent(whatsappMessage)}`;
+    submitBtnSpan.textContent = "Göndərilir...";
 
     try {
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      const response = await fetch("/api/whatsapp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project: idea,
+          budget: selectedPrice,
+          contactMethod: contactType,
+          contact: contactValue,
+        }),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "WhatsApp API request failed");
+      }
+
       resetForm();
-      setHint("WhatsApp-a yönləndirildiniz! Tezliklə sizinlə əlaqə saxlayacağıq. ✅", "success");
+      setHint("Sifarişiniz uğurla göndərildi. Tezliklə sizinlə əlaqə saxlayacağıq.", "success");
       showOrderToast(
         "Uğurlu!",
-        "Layihə məlumatlarınız WhatsApp Business-ə göndərildi. Tezliklə əlaqə saxlayacağıq.",
+        "Layihə məlumatlarınız WhatsApp Business-ə göndərildi.",
         "success"
       );
     } catch (err) {
-      setHint("Göndərmə zamanı problem yarandı. Zəhmət olmasa yenidən cəhd edin.", "error");
+      console.error("Order form submission failed:", err);
+      setHint("Göndərmə uğursuz oldu. Zəhmət olmasa bir qədər sonra yenidən cəhd edin.", "error");
     } finally {
       submitBtn.disabled = false;
-      submitBtnSpan.textContent = originalBtnText;
+      submitBtnSpan.textContent = "Sifarişinizi Göndərin";
     }
   });
 }

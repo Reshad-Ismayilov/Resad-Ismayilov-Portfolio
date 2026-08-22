@@ -64,7 +64,13 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, error: "Server not configured" });
   }
 
-  const raw = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
+  let raw;
+  try {
+    raw = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
+  } catch (err) {
+    console.error("Invalid WhatsApp request JSON:", err);
+    return res.status(400).json({ ok: false, error: "Invalid request body" });
+  }
   const project = sanitizeText(raw.project);
   const budgetRaw = raw.budget;
   const contactMethod = sanitizeText(raw.contactMethod).toLowerCase();
@@ -90,24 +96,29 @@ export default async function handler(req, res) {
   }
 
   const budgetAZN = Number(budgetRaw).toLocaleString("az-AZ");
-  const contactLabel = contactMethod === "phone" ? "Telefon" : "Email";
+  const contactLabel = contactMethod === "phone" ? "Mobil nömrə" : "Gmail";
+  const phone = contactMethod === "phone" ? contact : "Daxil edilməyib";
+  const email = contactMethod === "email" ? contact : "Daxil edilməyib";
 
   const lines = [
-    "🚀 YENİ LAYİHƏ MÜRACİƏTİ",
+    "Yeni layihə sifarişi",
     "",
-    `📌 Layihə:`,
+    "Layihə ideyası:",
     project,
     "",
-    `💰 Büdcə:`,
+    "Büdcə:",
     `${budgetAZN} AZN`,
     "",
-    `📞 Əlaqə üsulu:`,
+    "Əlaqə üsulu:",
     contactLabel,
     "",
-    `👤 Müştəri:`,
-    contact,
+    "Telefon:",
+    phone,
     "",
-    "🌐 Portfolio:",
+    "Email:",
+    email,
+    "",
+    "Portfolio:",
     "https://reshad-ismayilov.site/",
   ];
 
@@ -140,11 +151,13 @@ export default async function handler(req, res) {
     const data = await resp.json().catch(() => ({}));
 
     if (!resp.ok) {
+      console.error("WhatsApp Cloud API error:", resp.status, data);
       return res.status(502).json({ ok: false, error: "Failed to send message" });
     }
 
     return res.status(200).json({ ok: true });
   } catch (err) {
+    console.error("WhatsApp Cloud API request failed:", err);
     return res.status(502).json({ ok: false, error: "Failed to send message" });
   }
 }
