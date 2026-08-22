@@ -844,7 +844,7 @@ function initOrderForm() {
     submitBtnSpan.textContent = "Göndərilir...";
 
     try {
-      const response = await fetch("/api/whatsapp", {
+      const response = await fetch("/api/order-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -857,14 +857,14 @@ function initOrderForm() {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.ok) {
-        throw new Error(result.error || "WhatsApp API request failed");
+        throw new Error(result.error || "Email request failed");
       }
 
       resetForm();
       setHint("Sifarişiniz uğurla göndərildi. Tezliklə sizinlə əlaqə saxlayacağıq.", "success");
       showOrderToast(
         "Uğurlu!",
-        "Layihə məlumatlarınız WhatsApp Business-ə göndərildi.",
+        "Layihə məlumatlarınız Gmail hesabınıza göndərildi.",
         "success"
       );
     } catch (err) {
