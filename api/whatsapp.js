@@ -61,6 +61,11 @@ export default async function handler(req, res) {
   const recipientPhone = process.env.WHATSAPP_RECIPIENT_PHONE;
 
   if (!token || !phoneNumberId || !recipientPhone) {
+    console.error("Missing WhatsApp environment variables:", [
+      !token && "WHATSAPP_ACCESS_TOKEN",
+      !phoneNumberId && "WHATSAPP_PHONE_NUMBER_ID",
+      !recipientPhone && "WHATSAPP_RECIPIENT_PHONE",
+    ].filter(Boolean).join(", "));
     return res.status(500).json({ ok: false, error: "Server not configured" });
   }
 
