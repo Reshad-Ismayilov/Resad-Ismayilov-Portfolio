@@ -674,6 +674,220 @@ function initContactForm() {
   });
 }
 
+let toastTimeout = null;
+
+function showOrderToast(title, message, type = "success") {
+  const toast = $("#order-toast");
+  const toastTitle = toast?.querySelector(".toast__title");
+  const toastMessage = toast?.querySelector(".toast__message");
+  const toastIcon = toast?.querySelector(".toast__icon i");
+  const closeBtn = $("#toast-close");
+  if (!toast) return;
+
+  if (toastTitle) toastTitle.textContent = title || "Təşəkkür edirik!";
+  if (toastMessage) toastMessage.textContent = message || "";
+
+  if (toastIcon) {
+    if (type === "success") {
+      toastIcon.className = "fa-solid fa-circle-check";
+    } else if (type === "error") {
+      toastIcon.className = "fa-solid fa-circle-exclamation";
+    }
+  }
+
+  toast.classList.add("is-visible");
+
+  if (toastTimeout) {
+    clearTimeout(toastTimeout);
+  }
+
+  toastTimeout = setTimeout(() => {
+    hideOrderToast();
+  }, 9000);
+
+  if (closeBtn && !closeBtn.dataset.bound) {
+    closeBtn.dataset.bound = "1";
+    closeBtn.addEventListener("click", () => hideOrderToast());
+  }
+}
+
+function hideOrderToast() {
+  const toast = $("#order-toast");
+  if (!toast) return;
+  toast.classList.remove("is-visible");
+  if (toastTimeout) {
+    clearTimeout(toastTimeout);
+    toastTimeout = null;
+  }
+}
+
+function initOrderForm() {
+  const form = $("#order-form");
+  const hint = $("#order-form-hint");
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  const submitBtnSpan = submitBtn?.querySelector("span") || submitBtn;
+
+  const slider = $("#order-price");
+  const priceCurrent = $("#price-current");
+  const contactRadios = $$('input[name="contactType"]');
+  const contactLabel = $("#contact-label");
+  const contactInput = $("#contact-value");
+
+  if (!form || !submitBtn) return;
+
+  const updateSliderBackground = () => {
+    if (!slider) return;
+    const min = Number(slider.min);
+    const max = Number(slider.max);
+    const val = Number(slider.value);
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.background = `linear-gradient(90deg,
+      var(--accent-3) 0%,
+      var(--accent-2) ${pct}%,
+      rgba(255, 255, 255, 0.12) ${pct}%,
+      rgba(255, 255, 255, 0.12) 100%
+    )`;
+  };
+
+  if (slider && priceCurrent) {
+    updateSliderBackground();
+    slider.addEventListener("input", () => {
+      priceCurrent.textContent = `${Number(slider.value).toLocaleString("az-AZ")} AZN`;
+      updateSliderBackground();
+    });
+  }
+
+  if (contactRadios.length && contactLabel && contactInput) {
+    contactRadios.forEach((radio) => {
+      radio.addEventListener("change", () => {
+        if (radio.value === "phone") {
+          contactLabel.textContent = "Mobil nömrəniz";
+          contactInput.type = "tel";
+          contactInput.placeholder = "+994 50 123 45 67";
+          contactInput.pattern = "^[\\d\\s+()-]{7,20}$";
+        } else {
+          contactLabel.textContent = "Gmail ünvanınız";
+          contactInput.type = "email";
+          contactInput.placeholder = "example@gmail.com";
+          contactInput.removeAttribute("pattern");
+        }
+        contactInput.value = "";
+      });
+    });
+  }
+
+  const setHint = (text, type = "info") => {
+    if (!hint) return;
+    hint.textContent = text;
+    hint.className = `form__hint order-custom__hint ${type}`;
+  };
+
+  const resetForm = () => {
+    form.reset();
+    if (priceCurrent) priceCurrent.textContent = "5000 AZN";
+    updateSliderBackground();
+    if (contactLabel) contactLabel.textContent = "Mobil nömrəniz";
+    if (contactInput) {
+      contactInput.type = "tel";
+      contactInput.placeholder = "+994 50 123 45 67";
+      contactInput.pattern = "^[\\d\\s+()-]{7,20}$";
+    }
+    const firstRadio = document.querySelector('input[name="contactType"][value="phone"]');
+    if (firstRadio) firstRadio.checked = true;
+  };
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const idea = $("#order-idea")?.value?.trim() || "";
+    const selectedPrice = slider ? Number(slider.value) : NaN;
+    const contactType = (document.querySelector('input[name="contactType"]:checked')?.value) || "phone";
+    const contactValue = contactInput?.value?.trim() || "";
+
+    if (!idea) {
+      setHint("Zəhmət olmasa layihə ideyanızı yazın.", "error");
+      $("#order-idea")?.focus();
+      return;
+    }
+
+    if (!Number.isFinite(selectedPrice) || selectedPrice < 100 || selectedPrice > 10000) {
+      setHint("Zəhmət olmasa büdcəni seçin.", "error");
+      slider?.focus();
+      return;
+    }
+
+    if (!contactValue) {
+      setHint(contactType === "phone" ? "Zəhmət olmasa mobil nömrənizi yazın." : "Zəhmət olmasa Gmail ünvanınızı yazın.", "error");
+      contactInput?.focus();
+      return;
+    }
+
+    if (contactType === "email" && !emailRegex.test(contactValue)) {
+      setHint("Zəhmət olmasa düzgün Gmail ünvanı daxil edin.", "error");
+      contactInput?.focus();
+      return;
+    }
+
+    if (contactType === "phone") {
+      const digits = contactValue.replace(/\D/g, "");
+      if (digits.length < 7) {
+        setHint("Zəhmət olmasa düzgün mobil nömrə daxil edin.", "error");
+        contactInput?.focus();
+        return;
+      }
+    }
+
+    setHint("");
+    const originalBtnText = submitBtnSpan.textContent;
+    submitBtn.disabled = true;
+    submitBtnSpan.textContent = "Göndərilir...";
+
+    try {
+      const resp = await fetch("/api/whatsapp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          project: idea,
+          budget: String(selectedPrice),
+          contactMethod: contactType,
+          contact: contactValue,
+        }),
+      });
+
+      const data = await resp.json().catch(() => ({}));
+
+      if (resp.ok && data.ok) {
+        resetForm();
+        setHint("Layihə sorğunuz uğurla göndərildi. Tezliklə sizinlə əlaqə saxlayacağıq.", "success");
+        showOrderToast(
+          "Uğurlu!",
+          "Layihə sorğunuz uğurla göndərildi. Tezliklə sizinlə əlaqə saxlayacağıq.",
+          "success"
+        );
+      } else {
+        setHint("Göndərmə zamanı problem yarandı. Zəhmət olmasa yenidən cəhd edin.", "error");
+        showOrderToast(
+          "Xəta baş verdi",
+          "Göndərmə zamanı problem yarandı. Zəhmət olmasa yenidən cəhd edin.",
+          "error"
+        );
+      }
+    } catch (err) {
+      setHint("Göndərmə zamanı problem yarandı. Zəhmət olmasa yenidən cəhd edin.", "error");
+      showOrderToast(
+        "Xəta baş verdi",
+        "Göndərmə zamanı problem yarandı. Zəhmət olmasa yenidən cəhd edin.",
+        "error"
+      );
+    } finally {
+      submitBtn.disabled = false;
+      submitBtnSpan.textContent = originalBtnText;
+    }
+  });
+}
+
 initAOS();
 initNav();
 initActiveNav();
@@ -681,6 +895,7 @@ initToTop();
 initYear();
 initLang();
 initContactForm();
+initOrderForm();
 
 /**
  * Vercel Analytics Initialization

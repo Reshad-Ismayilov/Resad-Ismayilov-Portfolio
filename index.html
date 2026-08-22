@@ -764,30 +764,92 @@
       <section class="section" id="order">
         <div class="container">
           <div class="section__head" data-aos="fade-up">
-            <h2 class="section__title" data-i18n="order_title">Sifariş və Əməkdaşlıq</h2>
+            <h2 class="section__title order-custom__main-title">Öz layihəni yaz, özünü qiymət təyin et, biz hazırlayaq</h2>
+            <p class="section__desc order-custom__main-subtitle">
+              İsteğini yaz, büdcəni müəyyən et və əlaqə yolunu seç. Sifarişiniz birbaşa WhatsApp-a gedəcək.
+            </p>
           </div>
-          <div class="glass order-new" data-aos="fade-up">
-            <div class="order-new__grid">
-              <div class="order-new__image">
-                 <img src="./aze.png" alt="Sifariş və Əməkdaşlıq" loading="lazy" />
-               </div>
-              <div class="order-new__content">
-                <h3 class="order-new__subtitle">Rəqəmsal dünyada güclü bir iz buraxmaq istəyirsən?</h3>
-                <div class="order-new__text">
-                  <p>Mən sənə sadəcə bir vebsayt yox, sənin biznesini, ideyanı və brendini rəqəmsal olaraq gücləndirən müasir və peşəkar həllər hazırlayıram.</p>
-                  <p>İstər portfolio, istər biznes saytı, istərsə də sifariş sistemi olsun — hər layihə tam responsive, sürətli və istifadəçi yönümlü şəkildə hazırlanır.</p>
-                  <p>Məqsədim sadəcə kod yazmaq deyil, sənin üçün real nəticə verən, müştəri cəlb edən və etibar yaradan bir platforma yaratmaqdır.</p>
-                  <p>Əgər sən də fərqlənmək, peşəkar görünmək və online dünyada güclü yer tutmaq istəyirsənsə, doğru yerdəsən.</p>
-                  <p><strong>Gəlin birlikdə ideyanı real bir layihəyə çevirək.</strong></p>
-                </div>
+
+          <div class="glass order-custom" data-aos="fade-up">
+            <div class="order-custom__grid">
+              <div class="order-custom__image">
+                <img src="./aze.png" alt="Xüsusi sifariş" loading="lazy" />
               </div>
+
+              <form class="order-custom__form" id="order-form" novalidate>
+                <div class="form__row">
+                  <label class="label" for="order-idea">Layihə ideyanızı yazın</label>
+                  <textarea
+                    class="textarea"
+                    id="order-idea"
+                    name="orderIdea"
+                    rows="5"
+                    placeholder="Hansı bir layihə istəyirsiz? Məsələn: Restoran üçün onlayn sifariş saytı, e-ticarət platforması və s."
+                    required
+                  ></textarea>
+                </div>
+
+                <div class="form__row">
+                  <label class="label" for="order-price">Qiymət seçin (AZN)</label>
+                  <div class="price-range">
+                    <div class="price-range__labels">
+                      <span class="price-range__min">100 AZN</span>
+                      <span class="price-range__current" id="price-current">5000 AZN</span>
+                      <span class="price-range__max">10000 AZN</span>
+                    </div>
+                    <input
+                      type="range"
+                      id="order-price"
+                      name="orderPrice"
+                      min="100"
+                      max="10000"
+                      step="50"
+                      value="5000"
+                      class="price-range__slider"
+                    />
+                  </div>
+                </div>
+
+                <div class="form__row">
+                  <label class="label">Əlaqə üsulunu seçin</label>
+                  <div class="contact-options">
+                    <label class="contact-option">
+                      <input type="radio" name="contactType" value="phone" checked />
+                      <span class="contact-option__box">
+                        <i class="fa-solid fa-phone contact-option__icon"></i>
+                        <span class="contact-option__text">Mobil nömrə</span>
+                      </span>
+                    </label>
+                    <label class="contact-option">
+                      <input type="radio" name="contactType" value="email" />
+                      <span class="contact-option__box">
+                        <i class="fa-solid fa-envelope contact-option__icon"></i>
+                        <span class="contact-option__text">Gmail</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form__row">
+                  <label class="label" for="contact-value" id="contact-label">Mobil nömrəniz</label>
+                  <input
+                    class="input"
+                    id="contact-value"
+                    name="contactValue"
+                    type="tel"
+                    placeholder="+994 50 123 45 67"
+                    required
+                  />
+                </div>
+
+                <div class="form__actions form__actions--center">
+                  <button class="btn btn--primary order-custom__submit" type="submit">
+                    <span>Sifarişinizi göndərin</span>
+                  </button>
+                </div>
+                <p class="form__hint order-custom__hint" id="order-form-hint" role="status" aria-live="polite"></p>
+              </form>
             </div>
-          </div>
-          <div class="order-new__footer" data-aos="fade-up">
-            <a href="https://wa.me/994775570123" target="_blank" rel="noreferrer" class="btn btn--primary order-new__btn">
-              <i class="fa-brands fa-whatsapp"></i>
-              <span>İndi sifariş et</span>
-            </a>
           </div>
         </div>
       </section>
@@ -922,6 +984,19 @@
     <button class="to-top" type="button" id="to-top" aria-label="Yuxarı qalx">
       <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
+
+    <div class="toast" id="order-toast" role="status" aria-live="polite">
+      <div class="toast__icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <div class="toast__content">
+        <div class="toast__title">Təşəkkür edirik!</div>
+        <div class="toast__message">Sizin təklifiniz dəyərləndirildi. Əməkdaşlarımız bu gün ərzində sizinlə əlaqə saxlayacaq.</div>
+      </div>
+      <button class="toast__close" type="button" id="toast-close" aria-label="Bağla">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script type="module" src="./main.js"></script>
