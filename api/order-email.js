@@ -31,7 +31,11 @@ export default async function handler(req, res) {
   const recipient = process.env.ORDER_EMAIL_TO || "reshadd64@gmail.com";
 
   if (!apiKey || !from || !isValidEmail(recipient)) {
-    console.error("Missing or invalid email environment variables");
+    console.error("Missing or invalid email environment variables:", [
+      !apiKey && "RESEND_API_KEY",
+      !from && "RESEND_FROM_EMAIL",
+      !isValidEmail(recipient) && "ORDER_EMAIL_TO",
+    ].filter(Boolean).join(", "));
     return res.status(500).json({ ok: false, error: "Email service not configured" });
   }
 

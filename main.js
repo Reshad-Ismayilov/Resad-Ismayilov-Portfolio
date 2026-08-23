@@ -857,7 +857,9 @@ function initOrderForm() {
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.ok) {
-        throw new Error(result.error || "Email request failed");
+        const error = new Error(result.error || "Email request failed");
+        error.status = response.status;
+        throw error;
       }
 
       resetForm();
@@ -869,7 +871,12 @@ function initOrderForm() {
       );
     } catch (err) {
       console.error("Order form submission failed:", err);
-      setHint("Göndərmə uğursuz oldu. Zəhmət olmasa bir qədər sonra yenidən cəhd edin.", "error");
+      setHint(
+        err.status === 500
+          ? "Email xidməti hələ sazlanmayıb. Zəhmət olmasa sayt sahibi ilə əlaqə saxlayın."
+          : "Göndərmə uğursuz oldu. Zəhmət olmasa bir qədər sonra yenidən cəhd edin.",
+        "error"
+      );
     } finally {
       submitBtn.disabled = false;
       submitBtnSpan.textContent = "Sifarişinizi Göndərin";
