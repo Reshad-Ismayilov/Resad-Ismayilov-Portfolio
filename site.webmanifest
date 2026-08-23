@@ -1,16 +1,16 @@
 {
-  "name": "Reshad Ismayilov Portfolio",
+  "name": "Reshad Ismayilov | Veb sayt hazırlanması",
   "short_name": "Reshad Portfolio",
   "icons": [
     {
-      "src": "/ikon.png",
-      "sizes": "192x192",
+      "src": "/favicon-resad.png",
+      "sizes": "225x225",
       "type": "image/png"
     },
     {
-      "src": "/ikon.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
     }
   ],
   "theme_color": "#0b1020",

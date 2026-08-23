@@ -6,16 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b1020" />
 
-  <title>reshad-ismayilov.site | Reshad Ismayilov</title>
-  <meta name="title" content="reshad-ismayilov.site | Reshad Ismayilov" />
+  <title>Veb sayt hazırlanması və Full Stack Developer | Bakı</title>
+  <meta name="title" content="Veb sayt hazırlanması və Full Stack Developer | Bakı" />
   <meta name="description"
-    content="Official website of reshad-ismayilov.site. Portfolio of Reshad Ismayilov, Full Stack Developer & Instructor. React, Next.js, PHP, Laravel, MySQL." />
+    content="Bakıda peşəkar veb sayt hazırlanması, biznes saytları və web tətbiqləri. Reshad Ismayilov, Full Stack Developer olaraq müasir və sürətli həllər yaradır." />
   <meta name="keywords"
-    content="Reshad Ismayilov, Reshad Ismayilov portfolio, Reshad Ismayilov full stack developer, Full Stack Developer Baku, Web Developer Azerbaijan, PHP Laravel Developer, MySQL Developer, React Developer" />
+    content="veb sayt sifarişi, sayt hazırlanması, veb sayt hazırlanması, Bakıda sayt hazırlanması, peşəkar veb sayt, biznes üçün veb sayt, frontend developer Bakı, full stack developer Bakı, web developer Bakı, portfolio sayt hazırlanması, restoran üçün sayt, şirkət üçün sayt, onlayn mağaza hazırlanması, Reshad Ismayilov" />
   <meta name="author" content="Reshad Ismayilov" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://reshad-ismayilov.site/" />
   <meta property="og:site_name" content="reshad-ismayilov.site" />
+  <meta property="og:locale" content="az_AZ" />
   <meta name="application-name" content="reshad-ismayilov.site" />
 
   <!-- Open Graph / Facebook -->
@@ -24,15 +26,17 @@
   <meta property="og:title" content="Reshad Ismayilov | Full Stack Developer Portfolio" />
   <meta property="og:description"
     content="Explore the portfolio of Reshad Ismayilov, a professional Full Stack Developer specializing in React, Next.js, PHP, Laravel, and MySQL." />
-  <meta property="og:image" content="https://reshad-ismayilov.site/favicon-resad.png" />
+  <meta property="og:image" content="https://reshad-ismayilov.site/aze.png" />
+  <meta property="og:image:alt" content="Reshad Ismayilov portfolio və veb sayt hazırlanması nümunəsi" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://reshad-ismayilov.site/" />
-  <meta property="twitter:title" content="Reshad Ismayilov | Full Stack Developer Portfolio" />
+  <meta property="twitter:title" content="Veb sayt hazırlanması və Full Stack Developer | Bakı" />
   <meta property="twitter:description"
-    content="Explore the portfolio of Reshad Ismayilov, a professional Full Stack Developer specializing in React, Next.js, PHP, Laravel, and MySQL." />
-  <meta property="twitter:image" content="https://reshad-ismayilov.site/favicon-resad.png" />
+    content="Bakıda peşəkar veb sayt hazırlanması, biznes saytları və web tətbiqləri üçün Reshad Ismayilov ilə əlaqə saxlayın." />
+  <meta property="twitter:image" content="https://reshad-ismayilov.site/aze.png" />
+  <meta property="twitter:image:alt" content="Reshad Ismayilov portfolio və veb sayt hazırlanması nümunəsi" />
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -64,7 +68,33 @@
     {
       "@type": "WebSite",
       "name": "reshad-ismayilov.site",
-      "url": "https://reshad-ismayilov.site/"
+      "url": "https://reshad-ismayilov.site/",
+      "inLanguage": "az"
+    },
+    {
+      "@type": "ProfessionalService",
+      "name": "Reshad Ismayilov Veb Sayt Hazırlanması",
+      "url": "https://reshad-ismayilov.site/",
+      "provider": {
+        "@type": "Person",
+        "name": "Reshad Ismayilov"
+      },
+      "areaServed": ["Bakı", "Azərbaycan"],
+      "serviceType": [
+        "Veb sayt hazırlanması",
+        "Biznes üçün veb sayt",
+        "Web tətbiqlərin hazırlanması",
+        "Frontend və Full Stack development"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana səhifə",
+        "item": "https://reshad-ismayilov.site/"
+      }]
     }
   ]
 }
@@ -94,7 +124,7 @@
     <nav class="nav" aria-label="Əsas naviqasiya">
       <div class="container nav__inner">
         <a class="brand" href="#home" aria-label="Ana səhifə">
-          <span class="brand__mark"><img src="./favicon-resad.png" alt="Resad Ismayilov Logo"
+          <span class="brand__mark"><img src="./favicon-resad.png" alt="Resad Ismayilov Logo" width="225" height="225"
               class="brand__logo" /></span>
           <span class="brand__text">Resad Ismayilov</span>
         </a>
@@ -203,7 +233,8 @@
             <div class="hero-card__top">
               <div class="avatar" aria-hidden="true">
                 <span class="avatar__ring"></span>
-                <img src="./sekil-cv.jpeg" alt="Resad Ismayilov" class="avatar__img" />
+                <img src="./sekil-cv.jpeg" alt="Resad Ismayilov, Full Stack Developer" width="720" height="714"
+                  class="avatar__img" />
               </div>
               <div class="hero-card__name">
                 <div class="hero-card__title" data-i18n="card_role">Full Stack Developer</div>
@@ -648,7 +679,8 @@
           <article class="project glass" data-aos="fade-up" data-aos-delay="60">
             <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank"
               rel="noreferrer" aria-label="SmartRent GitHub">
-              <img src="./smartrent.png" alt="SmartRent screenshot" loading="lazy" />
+              <img src="./smartrent.png" alt="SmartRent veb tətbiqi layihəsi" width="1903" height="870"
+                loading="lazy" />
             </a>
             <div class="project__body">
               <h3 class="project__title" data-i18n="proj_1_title">SmartRent</h3>
@@ -668,7 +700,8 @@
           <article class="project glass" data-aos="fade-up" data-aos-delay="90">
             <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank"
               rel="noreferrer" aria-label="Onlaynders.az GitHub">
-              <img src="./onlaynders.png" alt="Onlaynders.az screenshot" loading="lazy" />
+              <img src="./onlaynders.png" alt="Onlaynders.az onlayn platforma layihəsi" width="1905" height="870"
+                loading="lazy" />
             </a>
             <div class="project__body">
               <h3 class="project__title" data-i18n="proj_2_title">Onlaynders.az</h3>
@@ -688,7 +721,7 @@
           <article class="project glass" data-aos="fade-up" data-aos-delay="120">
             <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank"
               rel="noreferrer" aria-label="Medicare GitHub">
-              <img src="./medicare.png" alt="Medicare screenshot" loading="lazy" />
+              <img src="./medicare.png" alt="Medicare web tətbiqi layihəsi" width="1900" height="850" loading="lazy" />
             </a>
             <div class="project__body">
               <h3 class="project__title" data-i18n="proj_3_title">Medicare</h3>
@@ -709,7 +742,7 @@
           <article class="project glass" data-aos="fade-up" data-aos-delay="150">
             <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank"
               rel="noreferrer" aria-label="BMPay GitHub">
-              <img src="./bmpay.png" alt="BMPay screenshot" loading="lazy" />
+              <img src="./bmpay.png" alt="BMPay ödəniş platforması layihəsi" width="1919" height="870" loading="lazy" />
             </a>
             <div class="project__body">
               <h3 class="project__title" data-i18n="proj_4_title">BMPay</h3>
@@ -728,7 +761,7 @@
           <article class="project glass" data-aos="fade-up" data-aos-delay="180">
             <a class="project__media" href="https://github.com/Reshad-Ismayilov?tab=repositories" target="_blank"
               rel="noreferrer" aria-label="CVBrain GitHub">
-              <img src="./cvbrain.png" alt="CVBrain screenshot" loading="lazy" />
+              <img src="./cvbrain.png" alt="CVBrain CV platforması layihəsi" width="1904" height="870" loading="lazy" />
             </a>
             <div class="project__body">
               <h3 class="project__title" data-i18n="proj_5_title">CVBrain</h3>
@@ -748,7 +781,8 @@
           <article class="project glass" data-aos="fade-up" data-aos-delay="210">
             <a class="project__media" href="https://github.com/Reshad-Ismayilov/AETC-Academy" target="_blank"
               rel="noreferrer" aria-label="AETC Academy GitHub">
-              <img src="./aetcacademy.png" alt="AETC Academy screenshot" loading="lazy" />
+              <img src="./aetcacademy.png" alt="AETC Academy təhsil platforması layihəsi" width="1902" height="879"
+                loading="lazy" />
             </a>
             <div class="project__body">
               <h3 class="project__title" data-i18n="proj_6_title">Aetc Academy</h3>
@@ -782,7 +816,8 @@
         <div class="glass order-custom" data-aos="fade-up">
           <div class="order-custom__grid">
             <div class="order-custom__image">
-              <img src="./aze.png" alt="Xüsusi sifariş" loading="lazy" />
+              <img src="./aze.png" alt="Veb sayt hazırlanması üçün portfolio nümunəsi" width="1920" height="1440"
+                loading="lazy" />
             </div>
 
             <form class="order-custom__form" id="order-form" novalidate>
