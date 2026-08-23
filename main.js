@@ -732,6 +732,7 @@ function initOrderForm() {
   const contactRadios = $$('input[name="contactType"]');
   const contactLabel = $("#contact-label");
   const contactInput = $("#contact-value");
+  const phoneInputWrap = $("#phone-input-wrap");
 
   if (!form || !submitBtn) return;
 
@@ -762,11 +763,13 @@ function initOrderForm() {
       radio.addEventListener("change", () => {
         if (radio.value === "phone") {
           contactLabel.textContent = "Mobil nömrəniz";
+          phoneInputWrap?.classList.remove("is-email");
           contactInput.type = "tel";
-          contactInput.placeholder = "+994 50 123 45 67";
+          contactInput.placeholder = "50 123 45 67";
           contactInput.pattern = "^[\\d\\s+()-]{7,20}$";
         } else {
           contactLabel.textContent = "Gmail ünvanınız";
+          phoneInputWrap?.classList.add("is-email");
           contactInput.type = "email";
           contactInput.placeholder = "example@gmail.com";
           contactInput.removeAttribute("pattern");
@@ -789,9 +792,10 @@ function initOrderForm() {
     if (contactLabel) contactLabel.textContent = "Mobil nömrəniz";
     if (contactInput) {
       contactInput.type = "tel";
-      contactInput.placeholder = "+994 50 123 45 67";
+      contactInput.placeholder = "50 123 45 67";
       contactInput.pattern = "^[\\d\\s+()-]{7,20}$";
     }
+    phoneInputWrap?.classList.remove("is-email");
     const firstRadio = document.querySelector('input[name="contactType"][value="phone"]');
     if (firstRadio) firstRadio.checked = true;
   };
@@ -804,7 +808,10 @@ function initOrderForm() {
     const idea = $("#order-idea")?.value?.trim() || "";
     const selectedPrice = slider ? Number(slider.value) : NaN;
     const contactType = (document.querySelector('input[name="contactType"]:checked')?.value) || "phone";
-    const contactValue = contactInput?.value?.trim() || "";
+    const contactInputValue = contactInput?.value?.trim() || "";
+    const contactValue = contactType === "phone" && contactInputValue
+      ? `+994 ${contactInputValue.replace(/^\+?994\s*/, "")}`
+      : contactInputValue;
 
     if (!idea) {
       setHint("Zəhmət olmasa layihə ideyanızı yazın.", "error");
@@ -818,7 +825,7 @@ function initOrderForm() {
       return;
     }
 
-    if (!contactValue) {
+    if (!contactInputValue) {
       setHint(contactType === "phone" ? "Zəhmət olmasa mobil nömrənizi yazın." : "Zəhmət olmasa Gmail ünvanınızı yazın.", "error");
       contactInput?.focus();
       return;

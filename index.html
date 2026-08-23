@@ -827,8 +827,11 @@
 
               <div class="form__row">
                 <label class="label" for="contact-value" id="contact-label">Mobil nömrəniz</label>
-                <input class="input" id="contact-value" name="contactValue" type="tel" placeholder="+994 50 123 45 67"
-                  required />
+                <div class="phone-input" id="phone-input-wrap">
+                  <span class="phone-input__prefix">+994</span>
+                  <input class="input" id="contact-value" name="contactValue" type="tel" placeholder="50 123 45 67"
+                    required />
+                </div>
               </div>
 
               <div class="form__actions form__actions--center">
