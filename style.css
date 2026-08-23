@@ -128,7 +128,7 @@ button {
 .glass .exp-pill,
 .glass .edu__icon,
 .glass .contact-row__icon {
-  background: var(--panel-2);
+  background: transparent;
   border-color: var(--border);
   color: var(--text);
 }
@@ -1613,7 +1613,7 @@ button {
   justify-content: center;
   overflow: hidden;
   border-radius: 20px;
-  background: var(--panel-2);
+  background: transparent;
   border: 1px solid var(--border);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
   position: sticky;
@@ -1653,11 +1653,7 @@ button {
 
 .phone-input .input {
   border-radius: 14px;
-  padding-left: 72px;
-}
-
-.phone-input.is-email .phone-input__prefix {
-  display: none;
+  padding-left: 18px;
 }
 
 .phone-input.is-email .input {

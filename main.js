@@ -759,22 +759,36 @@ function initOrderForm() {
   }
 
   if (contactRadios.length && contactLabel && contactInput) {
+    const normalizePhoneInput = () => {
+      let digits = contactInput.value.replace(/\D/g, "");
+      if (digits.startsWith("994")) digits = digits.slice(3);
+      if (digits.startsWith("0")) digits = digits.slice(1);
+      contactInput.value = `+994${digits.slice(0, 9)}`;
+    };
+
+    contactInput.addEventListener("input", () => {
+      if (contactInput.type === "tel") normalizePhoneInput();
+    });
+
     contactRadios.forEach((radio) => {
       radio.addEventListener("change", () => {
         if (radio.value === "phone") {
           contactLabel.textContent = "Mobil nömrəniz";
           phoneInputWrap?.classList.remove("is-email");
           contactInput.type = "tel";
-          contactInput.placeholder = "50 123 45 67";
-          contactInput.pattern = "^[\\d\\s+()-]{7,20}$";
+          contactInput.value = "+994";
+          contactInput.placeholder = "+994505570123";
+          contactInput.maxLength = 13;
+          contactInput.pattern = "\\+994\\d{9}";
         } else {
           contactLabel.textContent = "Gmail ünvanınız";
           phoneInputWrap?.classList.add("is-email");
           contactInput.type = "email";
           contactInput.placeholder = "example@gmail.com";
+          contactInput.removeAttribute("maxlength");
           contactInput.removeAttribute("pattern");
+          contactInput.value = "";
         }
-        contactInput.value = "";
       });
     });
   }
@@ -792,8 +806,10 @@ function initOrderForm() {
     if (contactLabel) contactLabel.textContent = "Mobil nömrəniz";
     if (contactInput) {
       contactInput.type = "tel";
-      contactInput.placeholder = "50 123 45 67";
-      contactInput.pattern = "^[\\d\\s+()-]{7,20}$";
+      contactInput.value = "+994";
+      contactInput.placeholder = "+994505570123";
+      contactInput.maxLength = 13;
+      contactInput.pattern = "\\+994\\d{9}";
     }
     phoneInputWrap?.classList.remove("is-email");
     const firstRadio = document.querySelector('input[name="contactType"][value="phone"]');
@@ -809,9 +825,7 @@ function initOrderForm() {
     const selectedPrice = slider ? Number(slider.value) : NaN;
     const contactType = (document.querySelector('input[name="contactType"]:checked')?.value) || "phone";
     const contactInputValue = contactInput?.value?.trim() || "";
-    const contactValue = contactType === "phone" && contactInputValue
-      ? `+994 ${contactInputValue.replace(/^\+?994\s*/, "")}`
-      : contactInputValue;
+    const contactValue = contactInputValue;
 
     if (!idea) {
       setHint("Zəhmət olmasa layihə ideyanızı yazın.", "error");
@@ -825,7 +839,7 @@ function initOrderForm() {
       return;
     }
 
-    if (!contactInputValue) {
+    if (!contactInputValue || (contactType === "phone" && !/^\+994\d{9}$/.test(contactInputValue))) {
       setHint(contactType === "phone" ? "Zəhmət olmasa mobil nömrənizi yazın." : "Zəhmət olmasa Gmail ünvanınızı yazın.", "error");
       contactInput?.focus();
       return;
