@@ -30,15 +30,6 @@ export default async function handler(req, res) {
   const from = process.env.RESEND_FROM_EMAIL;
   const recipient = process.env.ORDER_EMAIL_TO || "reshadd64@gmail.com";
 
-  if (!apiKey || !from || !isValidEmail(recipient)) {
-    console.error("Missing or invalid email environment variables:", [
-      !apiKey && "RESEND_API_KEY",
-      !from && "RESEND_FROM_EMAIL",
-      !isValidEmail(recipient) && "ORDER_EMAIL_TO",
-    ].filter(Boolean).join(", "));
-    return res.status(500).json({ ok: false, error: "Email service not configured" });
-  }
-
   let body;
   try {
     body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : req.body || {};
@@ -81,6 +72,29 @@ export default async function handler(req, res) {
   ].join("\n");
 
   try {
+    if (!apiKey || !from || !isValidEmail(recipient)) {
+      const fallbackResponse = await fetch("https://formspree.io/f/mgodnlar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: "Yeni layihə sifarişi",
+          email: email !== "Daxil edilməyib" ? email : undefined,
+          message,
+        }),
+      });
+      const fallbackResult = await fallbackResponse.json().catch(() => ({}));
+
+      if (!fallbackResponse.ok || fallbackResult.ok === false) {
+        console.error("Formspree fallback error:", fallbackResponse.status, fallbackResult);
+        return res.status(502).json({ ok: false, error: "Failed to send email" });
+      }
+
+      return res.status(200).json({ ok: true });
+    }
+
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
